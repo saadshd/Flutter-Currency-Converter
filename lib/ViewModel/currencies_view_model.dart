@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 
 Future<RatesModel> fetchRates() async {
   var response = await http.get(Uri.parse(AppUrl.ratesUrl));
-  final result = ratesModelFromJson(response.body);
-  return result;
+  final ratesModel = ratesModelFromJson(response.body);
+  return ratesModel;
 }
 
 Future<Map> fetchCurrencies() async {
