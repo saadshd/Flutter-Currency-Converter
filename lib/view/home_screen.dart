@@ -1,6 +1,6 @@
 import 'package:currency_convertor/Model/rates_model.dart';
 import 'package:currency_convertor/View/Widgets/conversion_card.dart';
-import 'package:currency_convertor/ViewModel/currencies_view_model.dart';
+import 'package:currency_convertor/data/network/api_services.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,12 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
     currenciesModel = fetchCurrencies();
   }
 
-  Widget _buildConversionCard(Map rates, Map currencies) {
-    return ConversionCard(
-      rates: rates,
-      currencies: currencies,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   } else if (index.hasError) {
                     return Center(child: Text('Error: ${index.error}'));
                   } else {
-                    return _buildConversionCard(snapshot.data!.rates, index.data!);
+                    return ConversionCard(
+                      rates: snapshot.data!.rates,
+                      currencies: index.data!,
+                    );
                   }
                 }
             );

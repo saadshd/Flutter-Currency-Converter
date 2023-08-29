@@ -1,4 +1,4 @@
-import 'package:currency_convertor/ViewModel/Utilities/key.dart';
+import 'package:currency_convertor/res/key.dart';
 
 class AppUrl {
   static const String baseUrl = 'https://openexchangerates.org/api/';

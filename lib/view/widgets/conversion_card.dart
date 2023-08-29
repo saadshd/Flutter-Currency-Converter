@@ -1,4 +1,5 @@
 import 'package:currency_convertor/View/Widgets/dropdown_row.dart';
+import 'package:currency_convertor/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class ConversionCard extends StatefulWidget {
@@ -29,21 +30,9 @@ class _ConversionCardState extends State<ConversionCard> {
     });
   }
 
-  String convert(
-      Map exchangeRates,
-      String amount,
-      String currencyBase,
-      String currencyFinal,
-      ) {
-    double usdAmount = double.parse(amount) / exchangeRates[currencyBase];
-    String output =
-    (usdAmount * exchangeRates[currencyFinal]).toStringAsFixed(2);
-    return output;
-  }
-
   void convertAndDisplay() {
     conversion =
-    '${amountController.text} $dropdownValue1 = ${convert(widget.rates, amountController.text, dropdownValue1, dropdownValue2)} $dropdownValue2';
+    '${amountController.text} $dropdownValue1 = ${Utils.convert(widget.rates, amountController.text, dropdownValue1, dropdownValue2)} $dropdownValue2';
     stopLoading();
   }
 
