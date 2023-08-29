@@ -122,6 +122,8 @@ class _ConversionCardState extends State<ConversionCard> {
             style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
+          const Spacer(),
+          const Text('Currency Rates by Open Exchange Rates'),
         ],
       ),
     );
