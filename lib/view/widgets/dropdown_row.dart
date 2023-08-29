@@ -34,7 +34,8 @@ class DropdownRow extends StatelessWidget {
                 .map<DropdownMenuItem<String>>((value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text('$value - ${currencies[value]}'),
+                child: Text('$value - ${currencies[value]}',
+                overflow: TextOverflow.ellipsis,),
               );
             }).toList(),
           ),
