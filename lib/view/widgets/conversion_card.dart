@@ -67,7 +67,7 @@ class _ConversionCardState extends State<ConversionCard> {
             currencies: widget.currencies,
             onChanged: (String? newValue) {
               setState(() {
-                dropdownValue1 = newValue!;
+                dropdownValue2 = newValue!;
               });
             },
           ),
