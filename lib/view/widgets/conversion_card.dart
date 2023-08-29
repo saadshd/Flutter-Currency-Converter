@@ -13,6 +13,7 @@ class ConversionCard extends StatefulWidget {
 
 class _ConversionCardState extends State<ConversionCard> {
   TextEditingController amountController = TextEditingController();
+  final GlobalKey<FormFieldState> formFieldKey = GlobalKey();
   String dropdownValue1 = 'USD';
   String dropdownValue2 = 'PKR';
   String conversion = '';
@@ -43,11 +44,18 @@ class _ConversionCardState extends State<ConversionCard> {
       child: Column(
         children: [
           TextFormField(
+            key: formFieldKey,
             controller: amountController,
             decoration: const InputDecoration(
               hintText: 'Enter Amount',
             ),
             keyboardType: TextInputType.number,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter an amount';
+              }
+              return null;
+            },
           ),
           const SizedBox(height: 20,),
           DropdownRow(
@@ -77,9 +85,11 @@ class _ConversionCardState extends State<ConversionCard> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    startLoading();
-                    conversion = '';
-                    convertAndDisplay();
+                    if (formFieldKey.currentState!.validate()) {
+                      startLoading();
+                      conversion = '';
+                      convertAndDisplay();
+                    }
                   },
                   child: isLoading
                       ? const CircularProgressIndicator()
