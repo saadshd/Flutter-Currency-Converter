@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(Icons.currency_exchange),
         title: const Text('Currency Convertor'),
       ),
       body: FutureBuilder<RatesModel>(

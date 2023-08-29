@@ -92,6 +92,7 @@ class _ConversionCardState extends State<ConversionCard> {
           Text(
             conversion,
             style: Theme.of(context).textTheme.headlineSmall,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

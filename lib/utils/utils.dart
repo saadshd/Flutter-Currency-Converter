@@ -8,8 +8,7 @@ class Utils {
       String currencyFinal,
       ) {
     double usdAmount = double.parse(amount) / exchangeRates[currencyBase];
-    String output =
-    (usdAmount * exchangeRates[currencyFinal]).toStringAsFixed(2);
+    String output = (usdAmount * exchangeRates[currencyFinal]).toStringAsFixed(4);
     return output;
   }
 
