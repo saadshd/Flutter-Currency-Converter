@@ -37,6 +37,14 @@ class _ConversionCardState extends State<ConversionCard> {
     stopLoading();
   }
 
+  void swapCurrencies() {
+    setState(() {
+      String temp = dropdownValue1;
+      dropdownValue1 = dropdownValue2;
+      dropdownValue2 = temp;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -68,7 +76,17 @@ class _ConversionCardState extends State<ConversionCard> {
               });
             },
           ),
-          const SizedBox(height: 20,),
+          IconButton.filledTonal(
+            icon: const Icon(Icons.swap_vert),
+            onPressed: () {
+              if(amountController.text.isEmpty){
+                swapCurrencies();
+              } else {
+                swapCurrencies();
+                convertAndDisplay();
+              }
+            },
+          ),
           DropdownRow(
             label: 'To:',
             value: dropdownValue2,
