@@ -4,6 +4,8 @@
 
 A **Flutter** currency convertor app designed to provide users a facility to exchange the currencies rates. It uses an API to display the exchanged data.
 
+![WhatsApp Image 2023-09-15 at 2 55 56 PM](https://github.com/saadshd/Flutter-Currency-Convertor/assets/101456852/e6ecd3ce-d968-4c1f-b639-34624daf0204)
+
 ## Features
 
 - Exchnage the currencies.
